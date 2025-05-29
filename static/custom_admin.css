@@ -1,0 +1,15 @@
+/* Fundo azul */
+body, .main-sidebar, .navbar, .content-header {
+    background-color: #001a43 !important;
+}
+
+/* Títulos e textos em dourado rose */
+h1, h2, h3, h4, h5, h6, .brand-text, .sidebar-menu a, .navbar-nav > li > a {
+    color: #c08457 !important;
+}
+
+/* Botões/menus ativos */
+.sidebar-menu .active > a, .navbar-nav > .active > a {
+    background-color: #c08457 !important;
+    color: #fff !important;
+}
