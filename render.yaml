@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: erp-estetica
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn erp_estetica.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: erp_estetica.settings
+      - key: PYTHON_VERSION
+        value: 3.11.7
+    autoDeploy: true
+    plan: free
