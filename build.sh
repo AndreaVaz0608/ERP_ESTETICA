@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-# Instala dependências
-pip install -r requirements.txt
+# build.sh
 
-# Coleta arquivos estáticos
-python manage.py collectstatic --no-input
+echo "Aplicando migrações do banco de dados..."
+python manage.py migrate --noinput
 
-# Aplica migrações
-python manage.py migrate
+echo "Coletando arquivos estáticos..."
+python manage.py collectstatic --noinput
