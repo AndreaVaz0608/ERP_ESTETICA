@@ -181,3 +181,4 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 >>>>>>> 24e6e409967575f0a33c6d67c77a16d8205036f6
+staticfiles
