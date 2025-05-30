@@ -9,10 +9,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-it0+nni@4oaa114@44xhnzs&9m!czzmhwe=g*7##&8+p44exyw')
 DEBUG = os.getenv('DEBUG', '').lower() == 'true'
 
-ALLOWED_HOSTS = [
-    os.getenv("RENDER_EXTERNAL_HOSTNAME", "localhost"),
-    ".onrender.com",
-]
+# ALLOWED_HOSTS dinâmico: usa .env ou fallback seguro
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS")
+if ALLOWED_HOSTS:
+    ALLOWED_HOSTS = ALLOWED_HOSTS.split(",")
+else:
+    RENDER_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME")
+    ALLOWED_HOSTS = [RENDER_HOSTNAME] if RENDER_HOSTNAME else ["127.0.0.1", "localhost"]
 
 INSTALLED_APPS = [
     'jazzmin',
@@ -47,7 +50,7 @@ ROOT_URLCONF = 'erp_estetica.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],  # <-- necessário para sobrescrever templates se quiser
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -97,9 +100,12 @@ JAZZMIN_SETTINGS = {
     "welcome_sign": "Bem-vinda, Silvia Vaz!",
     "copyright": "Silvia Vaz © 2024",
     "search_model": ["clientes.Cliente", "agendamentos.Agendamento", "servicos.Servico"],
-    "site_logo": "logo_silvia_vaz.png",
-    "site_icon": "logo_silvia_vaz.png",
-    "custom_css": "erp_estetica/custom_admin.css",
+
+    # ⚠️ Temporariamente desativado para evitar erro 500 na Render
+    # "site_logo": "logo_silvia_vaz.png",
+    # "site_icon": "logo_silvia_vaz.png",
+    # "custom_css": "erp_estetica/custom_admin.css",
+
     "icons": {
         "clientes.Cliente": "fas fa-user",
         "agendamentos.Agendamento": "fas fa-calendar-alt",
