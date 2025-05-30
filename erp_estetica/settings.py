@@ -47,7 +47,7 @@ ROOT_URLCONF = 'erp_estetica.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],  # <-- necessário para sobrescrever templates se quiser
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,6 +81,7 @@ TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 USE_TZ = True
 
+# Arquivos estáticos (CSS, JS, imagens)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -88,6 +89,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Jazzmin customização
 JAZZMIN_SETTINGS = {
     "site_title": "ERP Estética",
     "site_header": "ERP Estética",
@@ -95,8 +97,9 @@ JAZZMIN_SETTINGS = {
     "welcome_sign": "Bem-vinda, Silvia Vaz!",
     "copyright": "Silvia Vaz © 2024",
     "search_model": ["clientes.Cliente", "agendamentos.Agendamento", "servicos.Servico"],
-    "site_logo": "logo_silvia_vaz.png",
-    "site_icon": "logo_silvia_vaz.png",
+    "site_logo": "erp_estetica/logo_silvia_vaz.png",  # <-- Caminho corrigido
+    "site_icon": "erp_estetica/logo_silvia_vaz.png",  # <-- Caminho corrigido
+    "custom_css": "erp_estetica/custom_admin.css",    # <-- Caminho corrigido
     "icons": {
         "clientes.Cliente": "fas fa-user",
         "agendamentos.Agendamento": "fas fa-calendar-alt",
@@ -114,5 +117,4 @@ JAZZMIN_SETTINGS = {
             "icon": "fas fa-money-bill"
         }]
     },
-    "custom_css": "custom_admin.css",
 }
