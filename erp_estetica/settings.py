@@ -97,10 +97,9 @@ JAZZMIN_SETTINGS = {
     "welcome_sign": "Bem-vinda, Silvia Vaz!",
     "copyright": "Silvia Vaz © 2024",
     "search_model": ["clientes.Cliente", "agendamentos.Agendamento", "servicos.Servico"],
-        "site_logo": "logo_silvia_vaz.png",  # está diretamente em static/
+    "site_logo": "logo_silvia_vaz.png",
     "site_icon": "logo_silvia_vaz.png",
-    "custom_css": "erp_estetica/custom_admin.css",  # ok em subpasta
-}
+    "custom_css": "erp_estetica/custom_admin.css",
     "icons": {
         "clientes.Cliente": "fas fa-user",
         "agendamentos.Agendamento": "fas fa-calendar-alt",
