@@ -1,67 +1,64 @@
-/* ============================= */
-/* Estilo da Página de Login     */
-/* ============================= */
+/* Página de login elegante para Clínica Silvia Vaz */
 
-/* Fundo da página de login */
+/* Fundo geral */
 body.login {
-    background-color: #001a43 !important;
+    background: linear-gradient(135deg, #001a43, #0f3057);
     color: #c08457 !important;
     font-family: "Segoe UI", sans-serif;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    min-height: 100vh;
 }
 
-/* Container do formulário de login */
-.login-box, .login-box-body {
+/* Container principal do login */
+.login-box {
     background-color: #ffffff !important;
     border-radius: 16px;
-    padding: 30px;
-    margin-top: 60px;
+    padding: 40px 30px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
     width: 100%;
-    max-width: 360px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    max-width: 380px;
+    text-align: center;
 }
 
-/* Título da marca */
+/* Logo e título */
+.login-logo img {
+    max-height: 60px;
+    margin-bottom: 20px;
+}
+
 .login-logo a {
+    font-size: 26px;
     color: #c08457 !important;
-    font-size: 28px;
     font-weight: bold;
-}
-
-/* Botão */
-.btn-primary {
-    background-color: #c08457 !important;
-    border-color: #c08457 !important;
-    color: white !important;
-    border-radius: 8px !important;
-    font-weight: bold;
+    text-decoration: none;
 }
 
 /* Campos de input */
 input.form-control {
+    border-radius: 10px !important;
     border: 1px solid #ccc !important;
-    border-radius: 8px !important;
     padding: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* Botão de login */
+.btn-primary {
+    background-color: #c08457 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 20px;
 }
 
 /* Mensagens de erro */
 .errornote, .errorlist {
     color: #ff6b6b !important;
     font-weight: bold;
-    margin-bottom: 12px;
-    text-align: center;
-}
-
-/* Texto abaixo dos campos */
-.help {
-    font-size: 12px;
-    color: #888 !important;
-}
-
-/* Label dos campos */
-label {
-    color: #001a43 !important;
-    font-weight: 500;
+    margin-bottom: 15px;
 }

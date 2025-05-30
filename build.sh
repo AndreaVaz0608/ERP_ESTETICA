@@ -1,25 +1,28 @@
 #!/usr/bin/env bash
+# build.sh
 
-echo "🧱 Applying migrations"
+echo "Apply migrations"
 python manage.py migrate --noinput
 
-echo "📁 Collecting static files"
+echo "Collect static files"
 python manage.py collectstatic --noinput
 
-echo "👤 Creating superuser"
-
-# Variáveis de ambiente obrigatórias para o superuser
-DJANGO_SUPERUSER_USERNAME=${DJANGO_SUPERUSER_USERNAME:-admin}
-DJANGO_SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL:-admin@admin.com}
-DJANGO_SUPERUSER_PASSWORD=${DJANGO_SUPERUSER_PASSWORD:-admin123}
-
+echo "Create superuser if not exists"
 python manage.py shell << END
+import os
 from django.contrib.auth import get_user_model
+
 User = get_user_model()
-if not User.objects.filter(username='$DJANGO_SUPERUSER_USERNAME').exists():
-    User.objects.create_superuser(
-        username='$DJANGO_SUPERUSER_USERNAME',
-        email='$DJANGO_SUPERUSER_EMAIL',
-        password='$DJANGO_SUPERUSER_PASSWORD'
-    )
+username = os.environ.get('DJANGO_SUPERUSER_USERNAME')
+email = os.environ.get('DJANGO_SUPERUSER_EMAIL')
+password = os.environ.get('DJANGO_SUPERUSER_PASSWORD')
+
+if username and email and password:
+    if not User.objects.filter(username=username).exists():
+        User.objects.create_superuser(username=username, email=email, password=password)
+        print(f"Superusuário {username} criado.")
+    else:
+        print(f"Superusuário {username} já existe.")
+else:
+    print("Variáveis de ambiente para superusuário não definidas.")
 END
