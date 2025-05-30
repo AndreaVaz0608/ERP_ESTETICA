@@ -1,15 +1,67 @@
-/* Fundo azul */
-body, .main-sidebar, .navbar, .content-header {
+/* ============================= */
+/* Estilo da Página de Login     */
+/* ============================= */
+
+/* Fundo da página de login */
+body.login {
     background-color: #001a43 !important;
-}
-
-/* Títulos e textos em dourado rose */
-h1, h2, h3, h4, h5, h6, .brand-text, .sidebar-menu a, .navbar-nav > li > a {
     color: #c08457 !important;
+    font-family: "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Botões/menus ativos */
-.sidebar-menu .active > a, .navbar-nav > .active > a {
+/* Container do formulário de login */
+.login-box, .login-box-body {
+    background-color: #ffffff !important;
+    border-radius: 16px;
+    padding: 30px;
+    margin-top: 60px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+/* Título da marca */
+.login-logo a {
+    color: #c08457 !important;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Botão */
+.btn-primary {
     background-color: #c08457 !important;
-    color: #fff !important;
+    border-color: #c08457 !important;
+    color: white !important;
+    border-radius: 8px !important;
+    font-weight: bold;
+}
+
+/* Campos de input */
+input.form-control {
+    border: 1px solid #ccc !important;
+    border-radius: 8px !important;
+    padding: 10px;
+}
+
+/* Mensagens de erro */
+.errornote, .errorlist {
+    color: #ff6b6b !important;
+    font-weight: bold;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+/* Texto abaixo dos campos */
+.help {
+    font-size: 12px;
+    color: #888 !important;
+}
+
+/* Label dos campos */
+label {
+    color: #001a43 !important;
+    font-weight: 500;
 }
