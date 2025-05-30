@@ -9,7 +9,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-it0+nni@4oaa114@44xhnzs&9m!czzmhwe=g*7##&8+p44exyw')
 DEBUG = os.getenv('DEBUG', '').lower() == 'true'
 
-ALLOWED_HOSTS = [os.getenv("RENDER_EXTERNAL_HOSTNAME", ".onrender.com")]
+ALLOWED_HOSTS = [
+    os.getenv("RENDER_EXTERNAL_HOSTNAME", "localhost"),
+    ".onrender.com",
+]
 
 INSTALLED_APPS = [
     'jazzmin',
@@ -48,6 +51,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
