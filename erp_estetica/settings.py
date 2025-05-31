@@ -105,7 +105,7 @@ JAZZMIN_SETTINGS = {
 
     "site_logo": "img/logo_silvia_vaz.png",
     "site_icon": "img/logo_silvia_vaz.png",
-    "custom_css": "css/custom_admin.css",
+    "custom_css": "jazzmin/css/custom_admin.css",
 
     "icons": {
         "clientes.Cliente": "fas fa-user",
