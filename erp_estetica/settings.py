@@ -1,6 +1,8 @@
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import jazzmin
+import import_export
 
 load_dotenv()
 
@@ -101,10 +103,9 @@ JAZZMIN_SETTINGS = {
     "copyright": "Silvia Vaz © 2024",
     "search_model": ["clientes.Cliente", "agendamentos.Agendamento", "servicos.Servico"],
 
-    # ⚠️ Temporariamente desativado para evitar erro 500 na Render
-    # "site_logo": "logo_silvia_vaz.png",
-    # "site_icon": "logo_silvia_vaz.png",
-    # "custom_css": "erp_estetica/custom_admin.css",
+    "site_logo": "img/logo_silvia_vaz.png",
+    "site_icon": "img/logo_silvia_vaz.png",
+    "custom_css": "css/custom_admin.css",
 
     "icons": {
         "clientes.Cliente": "fas fa-user",
